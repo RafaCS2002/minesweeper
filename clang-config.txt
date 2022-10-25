@@ -1,0 +1,23 @@
+1° Instala o clang pelas extenções do vscode
+2° Cola os cod no settings.json
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true,
+    },
+    "editor.formatOnSave": true,
+    "clang-format.executable": "/usr/bin/clang-format-9",
+    "clang-format.language.c.enable": true,
+    "[c]": {
+        "editor.defaultFormatter": "xaver.clang-format",
+        "editor.wordBasedSuggestions": false,
+        "editor.suggest.insertMode": "replace",
+        "editor.semanticHighlighting.enabled": true
+    },
+
+3° Cria o arquivo .clang-format
+  clang-format.exe -style=llvm -dump-config > .clang-format
+4° Apaga tudo e adota esse novo arquivo como padrão
+  clang-format.exe -style=file 'D:\ProjectFolder\FileToFormat.cpp'
+
+Referencia: 
+https://www.clangpowertools.com/blog/getting-started-with-clang-format-style-options.html
+https://clang.llvm.org/docs/ClangFormatStyleOptions.html
